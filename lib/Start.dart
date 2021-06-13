@@ -25,16 +25,13 @@ class _StartState extends State<Start> {
         child: Column(
           children: <Widget>[
             SizedBox(height: 20.0),
-
             Container(
               child: Image(
                 image: AssetImage("images/start.jpg"),
                 fit: BoxFit.contain,
               ),
             ),
-
             SizedBox(height: 40),
-
             RichText(
               text: TextSpan(
                   text: 'Welcome to ',
@@ -52,14 +49,11 @@ class _StartState extends State<Start> {
                   ]),
             ),
             SizedBox(height: 10.0),
-
             Text(
               'Fresh creations are welcome',
               style: TextStyle(color: Colors.black),
             ),
-
             SizedBox(height: 40.0),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -96,9 +90,7 @@ class _StartState extends State<Start> {
                     color: Colors.orange),
               ],
             ),
-
             SizedBox(height: 30.0),
-
 //            SignInButton(
 //              Buttons.Google,
 //              text: "Sign up with Google",

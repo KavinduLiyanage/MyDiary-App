@@ -91,7 +91,6 @@ class _LoginState extends State<Login> {
                   children: <Widget>[
                     Container(
                       child: TextFormField(
-
                           // ignore: missing_return
                           validator: (input) {
                             if (input.isEmpty) return 'Enter Email';
@@ -104,7 +103,6 @@ class _LoginState extends State<Login> {
                     SizedBox(height: 10),
                     Container(
                       child: TextFormField(
-
                           // ignore: missing_return
                           validator: (input) {
                             if (input.length < 6)
