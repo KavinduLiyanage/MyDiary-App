@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'HomePage.dart';
 import 'Login.dart';
 
 class SignUp extends StatefulWidget {
@@ -19,7 +18,7 @@ class _SignUpState extends State<SignUp> {
     _auth.authStateChanges().listen((user) async {
       if (user != null) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => Login()));
       }
     });
   }
@@ -80,13 +79,13 @@ class _SignUpState extends State<SignUp> {
         child: Column(
           children: <Widget>[
             Container(
-              height: 309,
+              height: 278,
               child: Image(
                 image: AssetImage("images/signup.jpg"),
                 fit: BoxFit.contain,
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 1),
             Container(
               child: Form(
                 key: _formkey,
