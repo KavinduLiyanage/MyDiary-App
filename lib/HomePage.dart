@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mydiary/Start.dart';
+import 'package:mydiary/src/screens/entry_list.dart';
 import 'Start.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // FirebaseUser user;
-  User user;
+  late User user;
   bool isloggedin = false;
 
   checkAuthentification() async {
@@ -27,14 +28,14 @@ class _HomePageState extends State<HomePage> {
 
   getUser() async {
     // FirebaseUser firebaseUser = await _auth.currentUser();
-    User firebaseUser = await _auth.currentUser;
+    User? firebaseUser = await _auth.currentUser;
     await firebaseUser?.reload();
     // firebaseUser = await _auth.currentUser();
     firebaseUser = await _auth.currentUser;
 
     if (firebaseUser != null) {
       setState(() {
-        this.user = firebaseUser;
+        this.user = firebaseUser!;
         this.isloggedin = true;
       });
     }
@@ -78,6 +79,21 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
                       onPressed: signOut,
                       child: Text('SignOut',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      color: Colors.orange),
+                  RaisedButton(
+                      padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                      onPressed: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) => EntryList()));
+                      },
+                      child: Text('View',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,

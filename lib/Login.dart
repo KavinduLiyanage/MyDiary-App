@@ -12,7 +12,7 @@ class _LoginState extends State<Login> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  String _email, _password;
+  late String _email, _password;
 
   checkAuthentification() async {
     // _auth.onAuthStateChanged.listen((user) {
@@ -32,9 +32,9 @@ class _LoginState extends State<Login> {
 
   login() async {
     print('login');
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       print('if inside');
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
 
       try {
         print('try inside');
@@ -43,7 +43,7 @@ class _LoginState extends State<Login> {
             email: _email, password: _password);
       } catch (e) {
         print('catch inside');
-        showError(e.message);
+        showError('error');
       }
     }
   }
@@ -93,19 +93,19 @@ class _LoginState extends State<Login> {
                       child: TextFormField(
                           // ignore: missing_return
                           validator: (input) {
-                            if (input.isEmpty) return 'Enter Email';
+                            if (input!.isEmpty) return 'Enter Email';
                           },
                           decoration: InputDecoration(
                               labelText: 'Email',
                               prefixIcon: Icon(Icons.email)),
-                          onSaved: (input) => _email = input),
+                          onSaved: (input) => _email = input!),
                     ),
                     SizedBox(height: 10),
                     Container(
                       child: TextFormField(
                           // ignore: missing_return
                           validator: (input) {
-                            if (input.length < 6)
+                            if (input!.length < 6)
                               return 'Provide Minium 6 Character';
                           },
                           decoration: InputDecoration(
@@ -113,7 +113,7 @@ class _LoginState extends State<Login> {
                             prefixIcon: Icon(Icons.lock),
                           ),
                           obscureText: true,
-                          onSaved: (input) => _password = input),
+                          onSaved: (input) => _password = input!),
                     ),
                     SizedBox(height: 40),
                     RaisedButton(

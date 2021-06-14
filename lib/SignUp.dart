@@ -12,7 +12,7 @@ class _SignUpState extends State<SignUp> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  String _email, _password, _name;
+  late String _email, _password, _name;
 
   checkAuthentification() async {
     // _auth.onAuthStateChanged.listen((user) async
@@ -31,8 +31,8 @@ class _SignUpState extends State<SignUp> {
   }
 
   signUp() async {
-    if (_formkey.currentState.validate()) {
-      _formkey.currentState.save();
+    if (_formkey.currentState!.validate()) {
+      _formkey.currentState!.save();
 
       try {
         // FirebaseUser user = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
@@ -42,11 +42,11 @@ class _SignUpState extends State<SignUp> {
           // UserUpdateInfo updateuser = UserUpdateInfo();
           // updateuser.displayName = _name;
           // user.updateProfile(updateuser);
-          await FirebaseAuth.instance.currentUser
+          await FirebaseAuth.instance.currentUser!
               .updateProfile(displayName: _name);
         }
-      } catch (e) {
-        showError(e.message);
+      } catch (error) {
+        showError("error");
       }
     }
   }
@@ -96,29 +96,29 @@ class _SignUpState extends State<SignUp> {
                       child: TextFormField(
                           // ignore: missing_return
                           validator: (input) {
-                            if (input.isEmpty) return 'Enter Name';
+                            if (input!.isEmpty) return 'Enter Name';
                           },
                           decoration: InputDecoration(
                               labelText: 'Name',
                               prefixIcon: Icon(Icons.person)),
-                          onSaved: (input) => _name = input),
+                          onSaved: (input) => _name = input!),
                     ),
                     Container(
                       child: TextFormField(
                           // ignore: missing_return
                           validator: (input) {
-                            if (input.isEmpty) return 'Enter Email';
+                            if (input!.isEmpty) return 'Enter Email';
                           },
                           decoration: InputDecoration(
                               labelText: 'Email',
                               prefixIcon: Icon(Icons.email)),
-                          onSaved: (input) => _email = input),
+                          onSaved: (input) => _email = input!),
                     ),
                     Container(
                       child: TextFormField(
                           // ignore: missing_return
                           validator: (input) {
-                            if (input.length < 6)
+                            if (input!.length < 6)
                               return 'Provide Minium 6 Character';
                           },
                           decoration: InputDecoration(
@@ -126,7 +126,7 @@ class _SignUpState extends State<SignUp> {
                             prefixIcon: Icon(Icons.lock),
                           ),
                           obscureText: true,
-                          onSaved: (input) => _password = input),
+                          onSaved: (input) => _password = input!),
                     ),
                     SizedBox(height: 30),
                     RaisedButton(
