@@ -13,11 +13,15 @@ dependencies:
   cloud_firestore: ^2.2.2
   firebase_auth: ^1.4.1
   flutter_signin_button: ^2.0.0
-
   uuid: ^3.0.4
   provider: ^5.0.0
   date_format: ^2.0.2
   google_fonts: ^2.1.0
+  flutter_icons: ^1.1.0
+  page_transition: ^2.0.2
+  animated_bottom_navigation_bar: ^0.3.2
+  fl_chart: ^0.36.1
+  percent_indicator: ^3.0.1
   table_calendar: ^3.0.0
   syncfusion_flutter_calendar: ^19.1.69
 dev_dependencies:

@@ -54,7 +54,7 @@ class _StartState extends State<Start> {
               style: TextStyle(color: Colors.black),
             ),
             SizedBox(height: 40.0),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 RaisedButton(

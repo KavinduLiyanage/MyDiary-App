@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   // FirebaseUser user;
   late User user;
   bool isloggedin = false;
+  bool searchState = false;
 
   checkAuthentification() async {
     // _auth.onAuthStateChanged.listen((user) {
