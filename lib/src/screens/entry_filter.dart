@@ -1,7 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mydiary/src/json/budget_json.dart';
+import 'package:mydiary/src/helpers/colorList.dart';
 import 'package:mydiary/src/models/entry.dart';
 import 'package:mydiary/src/providers/entry_provider.dart';
 import 'package:mydiary/src/screens/entry_update.dart';
@@ -106,11 +106,11 @@ class EntryFilter extends StatelessWidget {
                                   ),
                                   Container(
                                     width: (size.width - 40) *
-                                        budget_json[index]['percentage'],
+                                        colorList[index]['percentage'],
                                     height: 4,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
-                                        color: budget_json[index]['color']),
+                                        color: colorList[index]['color']),
                                   ),
                                 ],
                               )

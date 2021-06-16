@@ -1,6 +1,6 @@
 import 'package:mydiary/src/theme/colors.dart';
 
-const List budget_json = [
+const List colorList = [
   {
     "percentage": 0.45,
     "color": green

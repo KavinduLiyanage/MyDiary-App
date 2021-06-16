@@ -1,20 +1,15 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
-import 'package:mydiary/src/models/entry.dart';
-import 'package:mydiary/src/pages/root_app.dart';
 import 'package:mydiary/src/providers/entry_provider.dart';
-import 'package:mydiary/src/screens/entry_list.dart';
 import 'package:mydiary/src/theme/colors.dart';
 import 'package:provider/provider.dart';
 
 class EntryInsert extends StatefulWidget {
-
   @override
   _EntryInsertState createState() => _EntryInsertState();
 }
 
 class _EntryInsertState extends State<EntryInsert> {
-
   final entryController = TextEditingController();
 
   @override
@@ -25,34 +20,24 @@ class _EntryInsertState extends State<EntryInsert> {
 
   @override
   void initState() {
-    final entryProvider = Provider.of<EntryProvider>(context,listen: false);
-
-    // if (widget.entry != null){
-    //   //Edit
-    //   entryController.text = widget.entry.entry;
-    //
-    //   entryProvider.loadAll(widget.entry);
-    // } else {
-    //   //Add
-    //   // entryProvider.loadAll(null);
-    //   // entryProvider.loadAll(widget.entry);
-    // }
+    final entryProvider = Provider.of<EntryProvider>(context, listen: false);
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
     final entryProvider = Provider.of<EntryProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: Text( (entryProvider.date != null) ? formatDate(entryProvider.date, [MM, ' ', d, ', ', yyyy]) : "Select date")
-          ,actions: [
+      appBar: AppBar(
+          title: Text((entryProvider.date != null)
+              ? formatDate(entryProvider.date, [MM, ' ', d, ', ', yyyy])
+              : "Select date"),
+          actions: [
             IconButton(
               icon: Icon(Icons.calendar_today),
-              onPressed: (){
+              onPressed: () {
                 _pickDate(context).then((value) {
-                  // entryProvider.changeDate = value!;
-                  if (value != null){
+                  if (value != null) {
                     entryProvider.changeDate = value;
                   }
                 });
@@ -101,7 +86,8 @@ class _EntryInsertState extends State<EntryInsert> {
                   TextField(
                     maxLines: 12,
                     minLines: 8,
-                    onChanged: (String value) => entryProvider.changeEntry = value,
+                    onChanged: (String value) =>
+                        entryProvider.changeEntry = value,
                     controller: entryController,
                     style: TextStyle(
                       fontSize: 18,
@@ -114,7 +100,6 @@ class _EntryInsertState extends State<EntryInsert> {
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black12),
                           borderRadius: BorderRadius.circular(10)),
-
                     ),
                   ),
                   SizedBox(
@@ -132,11 +117,11 @@ class _EntryInsertState extends State<EntryInsert> {
                       },
                       style: ButtonStyle(
                         foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
+                            MaterialStateProperty.all<Color>(Colors.white),
                         backgroundColor:
-                        MaterialStateProperty.all<Color>(primary),
+                            MaterialStateProperty.all<Color>(primary),
                         shape:
-                        MaterialStateProperty.all<RoundedRectangleBorder>(
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(24.0),
                           ),
@@ -162,7 +147,9 @@ class _EntryInsertState extends State<EntryInsert> {
 
   Future<DateTime?> _pickDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
-        context: context, initialDate: DateTime.now(), firstDate: DateTime(2019),
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2019),
         lastDate: DateTime(2050));
 
     if (picked != null) return picked;

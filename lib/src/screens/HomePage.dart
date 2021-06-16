@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mydiary/Start.dart';
+import 'package:mydiary/src/screens/Start.dart';
 import 'package:mydiary/src/screens/entry_list.dart';
 import 'Start.dart';
 

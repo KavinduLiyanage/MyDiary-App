@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mydiary/src/pages/root_app.dart';
+import 'package:mydiary/src/screens/root_app.dart';
 import 'package:mydiary/src/theme/colors.dart';
 import 'HomePage.dart';
 import 'Login.dart';

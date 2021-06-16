@@ -1,8 +1,7 @@
 import 'package:mydiary/src/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import '../globals.dart' as globals;
+import '../helpers/globals.dart' as globals;
 
 class ProfilePage extends StatefulWidget {
   @override

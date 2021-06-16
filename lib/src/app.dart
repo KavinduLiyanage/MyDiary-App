@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mydiary/HomePage.dart';
-import 'package:mydiary/src/pages/root_app.dart';
+import 'package:mydiary/src/screens/HomePage.dart';
+import 'package:mydiary/src/screens/root_app.dart';
 import 'package:mydiary/src/providers/entry_provider.dart';
 import 'package:mydiary/src/screens/entry_list.dart';
 import 'package:mydiary/src/theme/colors.dart';

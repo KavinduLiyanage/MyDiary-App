@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mydiary/Login.dart';
-import 'package:mydiary/SignUp.dart';
+import 'package:mydiary/src/screens/Login.dart';
+import 'package:mydiary/src/screens/SignUp.dart';
 import 'package:mydiary/src/theme/colors.dart';
 
 class Start extends StatefulWidget {

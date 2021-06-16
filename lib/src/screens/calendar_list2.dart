@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter/foundation.dart';
 
-import '../utils.dart';
+import '../helpers/utils.dart';
 
 class CalendarDiaryExample extends StatefulWidget {
   @override
