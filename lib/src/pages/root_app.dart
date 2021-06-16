@@ -160,12 +160,11 @@ class _RootAppState extends State<RootApp> {
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact us'),
-                  // onTap: () {
-                  //   Navigator.pop(context);
-                  //   Navigator.push(
-                  //       context, MaterialPageRoute(builder: (_) => ContactUs()));
-                  // },
+                  title: Text('Sign Out'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    signOut();
+                  },
                 ),
               ],
             ), // Populate the Drawer in the next step.

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mydiary/src/pages/root_app.dart';
+import 'package:mydiary/src/theme/colors.dart';
 import 'HomePage.dart';
 import 'Login.dart';
 
@@ -19,7 +21,7 @@ class _SignUpState extends State<SignUp> {
     _auth.authStateChanges().listen((user) async {
       if (user != null) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => RootApp()));
       }
     });
   }
@@ -140,13 +142,13 @@ class _SignUpState extends State<SignUp> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        color: Colors.orange),
-                    SizedBox(height: 10),
+                        color: primary),
+                    SizedBox(height: 20),
                     GestureDetector(
                       child: Text('Already have an Account? Sign In',
                           style: TextStyle(
-                              color: Colors.deepOrangeAccent,
-                              fontSize: 12.0,
+                              color: primary,
+                              fontSize: 15.0,
                               fontWeight: FontWeight.bold)),
                       onTap: navigateToLogin,
                     )

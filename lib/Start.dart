@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:mydiary/Login.dart';
 import 'package:mydiary/SignUp.dart';
+import 'package:mydiary/src/theme/colors.dart';
 
 class Start extends StatefulWidget {
   @override
@@ -45,7 +46,7 @@ class _StartState extends State<Start> {
                         style: TextStyle(
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold,
-                            color: Colors.orange))
+                            color: primary))
                   ]),
             ),
             SizedBox(height: 10.0),
@@ -71,7 +72,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orange),
+                    color: primary),
                 SizedBox(width: 20.0),
                 RaisedButton(
                     padding: EdgeInsets.only(left: 30, right: 30),
@@ -87,7 +88,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orange),
+                    color: primary),
               ],
             ),
             SizedBox(height: 30.0),
