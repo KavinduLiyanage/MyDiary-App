@@ -139,12 +139,13 @@ class EntrySearch extends SearchDelegate<String> {
     "Trip to Kandy",
     "Medical Checkups",
     "New Year Resolutions",
-    "Weight Loss Routine"
+    "My Weight Loss Routine",
+    "My New Job"
   ];
 
   final recententrylist = [
     "Trip to Kandy",
-    "Medical Checkups",
+    "Weight Loss Routine",
   ];
 
   @override
@@ -177,14 +178,14 @@ class EntrySearch extends SearchDelegate<String> {
         title: Row(
           children: [
             Text(
-              "Medical Checkups",
+              "My New Job",
             ),
           ],
         ),
         subtitle: Row(
           children: [
             Text(
-              "June 1, 2021",
+              "March 1, 2021",
             )
           ],
         ),

@@ -8,6 +8,7 @@ import 'package:mydiary/src/screens/entry_update.dart';
 import 'package:mydiary/src/screens/entry_insert.dart';
 import 'package:mydiary/src/theme/colors.dart';
 import 'package:provider/provider.dart';
+import 'package:mydiary/src/widget/sidenav_bar.dart';
 
 class EntryList extends StatelessWidget {
   @override
@@ -17,11 +18,9 @@ class EntryList extends StatelessWidget {
     bool searchState = true;
 
     return Scaffold(
+      drawer: SideNavBar(),
       appBar: AppBar(
         title: Text('My Diary'),
-        leading: Icon(
-          Icons.menu,
-        ),
       ),
       body: !searchState
           ? CircularProgressIndicator()
