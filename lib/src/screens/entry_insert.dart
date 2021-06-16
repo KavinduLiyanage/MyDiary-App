@@ -63,35 +63,97 @@ class _EntryInsertState extends State<EntryInsert> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Daily Entry', border: InputBorder.none,
+            Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                color: Colors.deepPurple.shade50,
+                shape: BoxShape.circle,
               ),
-              maxLines: 12,
-              minLines: 10,
-              onChanged: (String value) => entryProvider.changeEntry = value,
-              controller: entryController,
+              child: Image(
+                image: AssetImage("images/login.jpg"),
+                fit: BoxFit.contain,
+              ),
             ),
-            RaisedButton(
-              color: primary,
-              child: Text('Save',style: TextStyle(color: Colors.white)),
-              onPressed: () {
-                print('save');
-                entryProvider.saveEntry();
+            SizedBox(
+              height: 24,
+            ),
+            Text(
+              "Enter your note",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.black38,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Container(
+              padding: EdgeInsets.all(28),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                children: [
+                  TextField(
+                    maxLines: 12,
+                    minLines: 8,
+                    onChanged: (String value) => entryProvider.changeEntry = value,
+                    controller: entryController,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black12),
+                          borderRadius: BorderRadius.circular(10)),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black12),
+                          borderRadius: BorderRadius.circular(10)),
 
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => RootApp()));
-                Navigator.of(context).pop();
-              },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        print('save');
+                        entryProvider.saveEntry();
+                        // Navigator.of(context)
+                        //     .push(MaterialPageRoute(builder: (context) => RootApp()));
+                        Navigator.of(context).pop();
+                      },
+                      style: ButtonStyle(
+                        foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                        MaterialStateProperty.all<Color>(primary),
+                        shape:
+                        MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(14.0),
+                        child: Text(
+                          'Save',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
-            // (widget.entry != null) ? RaisedButton(
-            //   color: Colors.red,
-            //   child: Text('Delete',style: TextStyle(color: Colors.white)),
-            //   onPressed: () {
-            //     entryProvider.removeEntry(widget.entry.entryId);
-            //     Navigator.of(context).pop();
-            //   },
-            // ): Container(),
           ],
         ),
       ),

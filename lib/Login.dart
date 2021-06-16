@@ -46,7 +46,7 @@ class _LoginState extends State<Login> {
         checkAuthentification();
       } catch (e) {
         print('catch inside');
-        showError('error');
+        showError("The password is invalid or the user does not have a password");
       }
     }
   }
@@ -100,12 +100,16 @@ class _LoginState extends State<Login> {
                           },
                           decoration: InputDecoration(
                               labelText: 'Email',
+                              labelStyle: TextStyle(
+                                color: Colors.black,
+                          ),
                               prefixIcon: Icon(Icons.email)),
                           onSaved: (input) => _email = input!),
                     ),
                     SizedBox(height: 10),
                     Container(
                       child: TextFormField(
+
                           // ignore: missing_return
                           validator: (input) {
                             if (input!.length < 6)
@@ -113,6 +117,9 @@ class _LoginState extends State<Login> {
                           },
                           decoration: InputDecoration(
                             labelText: 'Password',
+                              labelStyle: TextStyle(
+                                color: Colors.black,
+                              ),
                             prefixIcon: Icon(Icons.lock),
                           ),
                           obscureText: true,
@@ -120,7 +127,7 @@ class _LoginState extends State<Login> {
                     ),
                     SizedBox(height: 40),
                     RaisedButton(
-                        padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                        padding: EdgeInsets.fromLTRB(90, 10, 90, 10),
                         onPressed: login,
                         child: Text('LOGIN',
                             style: TextStyle(
@@ -128,7 +135,7 @@ class _LoginState extends State<Login> {
                                 fontSize: 20.0,
                                 fontWeight: FontWeight.bold)),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
                         color: primary)
                   ],
