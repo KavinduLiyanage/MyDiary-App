@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mydiary/Start.dart';
+import 'package:mydiary/src/screens/calendar_list.dart';
+import 'package:mydiary/src/screens/calendar_list2.dart';
 import 'package:mydiary/src/screens/entry_list.dart';
 import 'Start.dart';
 
@@ -94,6 +96,36 @@ class _HomePageState extends State<HomePage> {
                             .push(MaterialPageRoute(builder: (context) => EntryList()));
                       },
                       child: Text('View',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      color: Colors.orange),
+                  RaisedButton(
+                      padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                      onPressed: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) => CalendarList()));
+                      },
+                      child: Text('Calendar View',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      color: Colors.orange),
+                  RaisedButton(
+                      padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                      onPressed: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) => TableEventsExample()));
+                      },
+                      child: Text('Calendar View2',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20.0,
