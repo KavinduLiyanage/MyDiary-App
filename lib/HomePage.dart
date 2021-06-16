@@ -70,22 +70,24 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(height: 20),
                   Container(
                     child: Text(
-                      "Hello ${user.displayName} you are Logged in as ${user.email}",
+                      "Hello ${user.displayName} !",
                       style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange),
                     ),
                   ),
                   SizedBox(height: 30),
                   RaisedButton(
-                      padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                      padding: EdgeInsets.fromLTRB(40, 20, 40, 10),
                       onPressed: signOut,
                       child: Text('SignOut',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20.0,
+                              fontSize: 15.0,
                               fontWeight: FontWeight.bold)),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(15.0),
                       ),
                       color: Colors.orange),
                   RaisedButton(
