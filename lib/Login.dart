@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mydiary/src/pages/root_app.dart';
+import 'package:mydiary/src/theme/colors.dart';
 import 'HomePage.dart';
 import 'SignUp.dart';
 
@@ -14,15 +16,15 @@ class _LoginState extends State<Login> {
 
   late String _email, _password;
 
+  //check authentification and navigate to HomePage
   checkAuthentification() async {
     // _auth.onAuthStateChanged.listen((user) {
     _auth.authStateChanges().listen((user) {
       if (user != null) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => RootApp()));
       }
     });
-
     @override
     void initState() {
       super.initState();
@@ -41,6 +43,7 @@ class _LoginState extends State<Login> {
         // FirebaseUser user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
         UserCredential user = await _auth.signInWithEmailAndPassword(
             email: _email, password: _password);
+        checkAuthentification();
       } catch (e) {
         print('catch inside');
         showError('error');
@@ -127,7 +130,7 @@ class _LoginState extends State<Login> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        color: Colors.orange)
+                        color: primary)
                   ],
                 ),
               ),
@@ -136,8 +139,8 @@ class _LoginState extends State<Login> {
             GestureDetector(
               child: Text('Create an Account? Sign Up',
                   style: TextStyle(
-                      color: Colors.deepOrangeAccent,
-                      fontSize: 12.0,
+                      color: primary,
+                      fontSize: 15.0,
                       fontWeight: FontWeight.bold)),
               onTap: navigateToSignUp,
             )

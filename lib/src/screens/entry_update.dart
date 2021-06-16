@@ -2,6 +2,7 @@ import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:mydiary/src/models/entry.dart';
 import 'package:mydiary/src/providers/entry_provider.dart';
+import 'package:mydiary/src/theme/colors.dart';
 import 'package:provider/provider.dart';
 
 class EntryUpdate extends StatefulWidget {
@@ -71,15 +72,15 @@ class _EntryUpdateState extends State<EntryUpdate> {
               controller: entryController,
             ),
             RaisedButton(
-              color: Theme.of(context).accentColor,
-              child: Text('Save',style: TextStyle(color: Colors.white)),
+              color: primary,
+              child: Text('Update',style: TextStyle(color: Colors.white)),
               onPressed: () {
                 entryProvider.updateEntry();
                 Navigator.of(context).pop();
               },
             ),
             (widget.entry != null) ? RaisedButton(
-              color: Colors.red,
+              color: grey,
               child: Text('Delete',style: TextStyle(color: Colors.white)),
               onPressed: () {
                 entryProvider.removeEntry(widget.entry.entryId);
