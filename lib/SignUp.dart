@@ -14,12 +14,13 @@ class _SignUpState extends State<SignUp> {
 
   late String _email, _password, _name;
 
+  //Check authentication and navigate to the Login Screen
   checkAuthentification() async {
     // _auth.onAuthStateChanged.listen((user) async
     _auth.authStateChanges().listen((user) async {
       if (user != null) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => Login()));
       }
     });
   }

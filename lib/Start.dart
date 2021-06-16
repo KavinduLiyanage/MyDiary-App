@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:mydiary/Login.dart';
 import 'package:mydiary/SignUp.dart';
 
@@ -9,6 +8,7 @@ class Start extends StatefulWidget {
   _StartState createState() => _StartState();
 }
 
+//navigation to login and register
 class _StartState extends State<Start> {
   navigateToLogin() async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
@@ -43,9 +43,7 @@ class _StartState extends State<Start> {
                     TextSpan(
                         text: 'My Dairy',
                         style: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.orange))
+                            fontSize: 30.0, fontWeight: FontWeight.bold))
                   ]),
             ),
             SizedBox(height: 10.0),
@@ -91,11 +89,6 @@ class _StartState extends State<Start> {
               ],
             ),
             SizedBox(height: 30.0),
-//            SignInButton(
-//              Buttons.Google,
-//              text: "Sign up with Google",
-//              onPressed: () {},
-//            ),
           ],
         ),
       ),

@@ -14,6 +14,7 @@ class _LoginState extends State<Login> {
 
   late String _email, _password;
 
+  //check authentification and navigate to HomePage
   checkAuthentification() async {
     // _auth.onAuthStateChanged.listen((user) {
     _auth.authStateChanges().listen((user) {
