@@ -23,9 +23,10 @@ class RootApp extends StatefulWidget {
 class _RootAppState extends State<RootApp> {
   int pageIndex = 0;
   List<Widget> pages = [
+    EntryList(),
     CalendarDiaryExample(),
     EntryFilter(),
-    BudgetPage(),
+    // BudgetPage(),
     ProfilePage(),
     EntryInsert()
   ];
@@ -199,9 +200,9 @@ class _RootAppState extends State<RootApp> {
 
   Widget getFooter() {
     List<IconData> iconItems = [
+      Ionicons.md_list,
       Ionicons.md_calendar,
-      Ionicons.md_stats,
-      Ionicons.md_wallet,
+      Ionicons.md_search,
       Ionicons.ios_person,
     ];
 
