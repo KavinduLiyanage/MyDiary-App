@@ -1,13 +1,20 @@
 import 'dart:collection';
+import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:mydiary/src/models/entry.dart';
-import 'package:mydiary/src/providers/entry_provider.dart';
-import 'package:mydiary/src/screens/entry_update.dart';
-import 'package:mydiary/src/screens/entry_insert.dart';
-import 'package:provider/provider.dart';
 
+class EventListDateTime {
+  static late Map<DateTime, List<Event>> _eventAtt = {
+    DateTime.utc(2021,03,21): [Event("Trip to Kandy")],
+  };
+
+  static changeDate(DateTime date, String event) {
+    _eventAtt.addAll({date: [Event(event)]});
+  }
+
+  static Map<DateTime, List<Event>> get eventAtt => _eventAtt;
+}
 
 class Event {
   final String title;
@@ -24,16 +31,16 @@ final kEvents = LinkedHashMap<DateTime, List<Event>>(
   hashCode: getHashCode,
 )..addAll(_kEventSource);
 
-final _kEventSource = Map.fromIterable(List.generate(50, (index) => index),
-    key: (item) => DateTime.utc(2020, 10, item * 5),
-    value: (item) => List.generate(
-        item % 4 + 1, (index) => Event('Event $item | ${index + 1}')))
-  ..addAll({
-    DateTime.now(): [
-      Event('Today\'s Event 1'),
-      Event('Today\'s Event 2'),
-    ],
-  });
+final _kEventSource = {
+  DateTime.utc(2021,03,21): [Event("Trip to Kandy")],
+  DateTime.utc(2021,06,01): [Event("Medical Checkups")],
+  DateTime.utc(2021,06,04): [Event("hiiiiii")],
+  DateTime.utc(2020,12,31): [Event("New Year Resolutions")],
+  DateTime.utc(2020,06,18): [Event("iiiiii")],
+  DateTime.utc(2020,07,01): [Event("Good")],
+  DateTime.utc(2020,06,24): [Event("New 2")],
+  DateTime.utc(2020,06,25): [Event("vbbbvcc edited")],
+};
 
 int getHashCode(DateTime key) {
   return key.day * 1000000 + key.month * 10000 + key.year;
