@@ -22,7 +22,7 @@ class _SignUpState extends State<SignUp> {
     _auth.authStateChanges().listen((user) async {
       if (user != null) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => RootApp()));
+            context, MaterialPageRoute(builder: (context) => Login()));
       }
     });
   }
@@ -83,7 +83,7 @@ class _SignUpState extends State<SignUp> {
         child: Column(
           children: <Widget>[
             Container(
-              height: 309,
+              height: 250,
               child: Image(
                 image: AssetImage("images/signup.jpg"),
                 fit: BoxFit.contain,
@@ -103,6 +103,9 @@ class _SignUpState extends State<SignUp> {
                           },
                           decoration: InputDecoration(
                               labelText: 'Name',
+                              labelStyle: TextStyle(
+                                color: Colors.black,
+                              ),
                               prefixIcon: Icon(Icons.person)),
                           onSaved: (input) => _name = input!),
                     ),
@@ -114,6 +117,9 @@ class _SignUpState extends State<SignUp> {
                           },
                           decoration: InputDecoration(
                               labelText: 'Email',
+                              labelStyle: TextStyle(
+                                color: Colors.black,
+                              ),
                               prefixIcon: Icon(Icons.email)),
                           onSaved: (input) => _email = input!),
                     ),
@@ -126,6 +132,9 @@ class _SignUpState extends State<SignUp> {
                           },
                           decoration: InputDecoration(
                             labelText: 'Password',
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                            ),
                             prefixIcon: Icon(Icons.lock),
                           ),
                           obscureText: true,
@@ -133,7 +142,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 30),
                     RaisedButton(
-                        padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                        padding: EdgeInsets.fromLTRB(90, 10, 90, 10),
                         onPressed: signUp,
                         child: Text('SignUp',
                             style: TextStyle(
@@ -141,7 +150,7 @@ class _SignUpState extends State<SignUp> {
                                 fontSize: 20.0,
                                 fontWeight: FontWeight.bold)),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
                         color: primary),
                     SizedBox(height: 20),

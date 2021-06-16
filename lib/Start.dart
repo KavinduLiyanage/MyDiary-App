@@ -54,12 +54,12 @@ class _StartState extends State<Start> {
               'Fresh creations are welcome',
               style: TextStyle(color: Colors.black),
             ),
-            SizedBox(height: 40.0),
+            SizedBox(height: 50.0),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 RaisedButton(
-                    padding: EdgeInsets.only(left: 50, right: 50),
+                    padding: EdgeInsets.only(left: 100, right: 100),
                     onPressed: navigateToLogin,
                     child: Text(
                       'LOGIN',
@@ -70,12 +70,12 @@ class _StartState extends State<Start> {
                       ),
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     color: primary),
-                SizedBox(width: 20.0),
+                SizedBox(width: 60.0),
                 RaisedButton(
-                    padding: EdgeInsets.only(left: 30, right: 30),
+                    padding: EdgeInsets.only(left: 80, right: 80),
                     onPressed: navigateToRegister,
                     child: Text(
                       'REGISTER',
@@ -86,12 +86,12 @@ class _StartState extends State<Start> {
                       ),
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     color: primary),
               ],
             ),
-            SizedBox(height: 30.0),
+            SizedBox(height: 60.0),
           ],
         ),
       ),
