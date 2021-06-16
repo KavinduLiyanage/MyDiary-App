@@ -45,7 +45,7 @@ class _EntryInsertState extends State<EntryInsert> {
   Widget build(BuildContext context) {
     final entryProvider = Provider.of<EntryProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: Text("Select date")
+      appBar: AppBar(title: Text( (entryProvider.date != null) ? formatDate(entryProvider.date, [MM, ' ', d, ', ', yyyy]) : "Select date")
           ,actions: [
             IconButton(
               icon: Icon(Icons.calendar_today),
