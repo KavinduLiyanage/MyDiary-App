@@ -15,7 +15,6 @@ class EntryUpdate extends StatefulWidget {
 }
 
 class _EntryUpdateState extends State<EntryUpdate> {
-
   final entryController = TextEditingController();
 
   @override
@@ -26,8 +25,8 @@ class _EntryUpdateState extends State<EntryUpdate> {
 
   @override
   void initState() {
-    final entryProvider = Provider.of<EntryProvider>(context,listen: false);
-    if (widget.entry != null){
+    final entryProvider = Provider.of<EntryProvider>(context, listen: false);
+    if (widget.entry != null) {
       //Edit
       entryController.text = widget.entry.entry;
 
@@ -40,18 +39,18 @@ class _EntryUpdateState extends State<EntryUpdate> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     final entryProvider = Provider.of<EntryProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: Text(formatDate(entryProvider.date, [MM, ' ', d, ', ', yyyy]))
-          ,actions: [
+      appBar: AppBar(
+          title: Text(formatDate(entryProvider.date, [MM, ' ', d, ', ', yyyy])),
+          actions: [
             IconButton(
               icon: Icon(Icons.calendar_today),
-              onPressed: (){
-                _pickDate(context,entryProvider).then((value) {
-                  if (value != null){
+              onPressed: () {
+                _pickDate(context, entryProvider).then((value) {
+                  if (value != null) {
                     entryProvider.changeDate = value;
                   }
                 });
@@ -62,40 +61,139 @@ class _EntryUpdateState extends State<EntryUpdate> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Daily Entry', border: InputBorder.none,
+            Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                color: Colors.deepPurple.shade50,
+                shape: BoxShape.circle,
               ),
-              maxLines: 12,
-              minLines: 10,
-              onChanged: (String value) => entryProvider.changeEntry = value,
-              controller: entryController,
+              child: Image(
+                image: AssetImage("images/login.jpg"),
+                fit: BoxFit.contain,
+              ),
             ),
-            RaisedButton(
-              color: primary,
-              child: Text('Update',style: TextStyle(color: Colors.white)),
-              onPressed: () {
-                entryProvider.updateEntry();
-                Navigator.of(context).pop();
-              },
+            SizedBox(
+              height: 24,
             ),
-            (widget.entry != null) ? RaisedButton(
-              color: grey,
-              child: Text('Delete',style: TextStyle(color: Colors.white)),
-              onPressed: () {
-                entryProvider.removeEntry(widget.entry.entryId);
-                Navigator.of(context).pop();
-              },
-            ): Container(),
+            Text(
+              "Edit your note",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.black38,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Container(
+              padding: EdgeInsets.all(28),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                children: [
+                  TextField(
+                    maxLines: 12,
+                    minLines: 6,
+                    onChanged: (String value) =>
+                        entryProvider.changeEntry = value,
+                    controller: entryController,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black12),
+                          borderRadius: BorderRadius.circular(10)),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black12),
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 22,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        entryProvider.updateEntry();
+                        Navigator.of(context).pop();
+                      },
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(primary),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(14.0),
+                        child: Text(
+                          'Update',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 22,
+                  ),
+                  (widget.entry != null)
+                      ? SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              entryProvider.removeEntry(widget.entry.entryId);
+                              Navigator.of(context).pop();
+                            },
+                            style: ButtonStyle(
+                              foregroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              backgroundColor:
+                                  MaterialStateProperty.all<Color>(grey),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(24.0),
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(14.0),
+                              child: Text(
+                                'Delete',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
+                        )
+                      : Container(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Future<DateTime?> _pickDate(BuildContext context, EntryProvider entryProvider) async {
+  Future<DateTime?> _pickDate(
+      BuildContext context, EntryProvider entryProvider) async {
     final DateTime? picked = await showDatePicker(
-        context: context, initialDate: entryProvider.date, firstDate: DateTime(2019),
+        context: context,
+        initialDate: entryProvider.date,
+        firstDate: DateTime(2019),
         lastDate: DateTime(2050));
 
     if (picked != null) return picked;
