@@ -5,6 +5,7 @@ import 'package:mydiary/src/pages/create_budge_page.dart';
 import 'package:mydiary/src/pages/daily_page.dart';
 import 'package:mydiary/src/pages/profile_page.dart';
 import 'package:mydiary/src/pages/stats_page.dart';
+import 'package:mydiary/src/screens/calendar_list2.dart';
 import 'package:mydiary/src/screens/entry_filter.dart';
 import 'package:mydiary/src/screens/entry_insert.dart';
 import 'package:mydiary/src/screens/entry_list.dart';
@@ -22,7 +23,7 @@ class RootApp extends StatefulWidget {
 class _RootAppState extends State<RootApp> {
   int pageIndex = 0;
   List<Widget> pages = [
-    EntryList(),
+    CalendarDiaryExample(),
     EntryFilter(),
     BudgetPage(),
     ProfilePage(),
