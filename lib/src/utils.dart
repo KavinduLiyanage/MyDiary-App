@@ -32,14 +32,13 @@ final kEvents = LinkedHashMap<DateTime, List<Event>>(
 )..addAll(_kEventSource);
 
 final _kEventSource = {
-  DateTime.utc(2021,03,21): [Event("Trip to Kandy")],
+  DateTime.utc(2021,03,26): [Event("Trip to Kandy and Matale")],
   DateTime.utc(2021,06,01): [Event("Medical Checkups")],
-  DateTime.utc(2021,06,04): [Event("hiiiiii")],
   DateTime.utc(2020,12,31): [Event("New Year Resolutions")],
-  DateTime.utc(2020,06,18): [Event("iiiiii")],
-  DateTime.utc(2020,07,01): [Event("Good")],
-  DateTime.utc(2020,06,24): [Event("New 2")],
-  DateTime.utc(2020,06,25): [Event("vbbbvcc edited")],
+  DateTime.utc(2021,03,01): [Event("My New Job")],
+  DateTime.utc(2021,06,02): [Event("My Weight Loss Routine")],
+  DateTime.utc(2021,06,15): [Event("Meeting Discussion Log")],
+  DateTime.utc(2021,06,16): [Event("My First Charity Programme"),Event("My First Eldar Charity Programme")],
 };
 
 int getHashCode(DateTime key) {
